@@ -1,7 +1,8 @@
 import { Redirect, Slot } from 'expo-router'
+import useAuthStore from '@/store/auth.store';
 
-export default function _layout() {
-  const isAuthenticated = false; // replace with real auth check
+export default function Taplayout() {
+  const { isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) return <Redirect href="/sign-in" />
 
