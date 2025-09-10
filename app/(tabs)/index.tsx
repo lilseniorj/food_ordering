@@ -1,5 +1,4 @@
-import { FlatList, Pressable, SafeAreaView, View, Text, Image, TouchableOpacity, Button } from "react-native";
-import * as Sentry from "@sentry/react-native";
+import { FlatList, Pressable, SafeAreaView, View, Text, Image, TouchableOpacity } from "react-native";
 import { Fragment } from "react";
 import cn from 'clsx'
 
@@ -61,14 +60,7 @@ export default function Index() {
             <CartButton />
           </View>
         }
-        ListFooterComponent={() =>
-          <Button
-            title="Try!"
-            onPress={ () => { Sentry.captureException(new Error("Test error")) }}
-          />
-        }
       />
-
     </SafeAreaView>
   );
 }
