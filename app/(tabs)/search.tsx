@@ -6,6 +6,8 @@ import { useLocalSearchParams } from 'expo-router'
 import { useEffect } from 'react'
 import CartButton from '@/components/CartButton'
 import cn from "clsx";
+import MenuCard from "@/components/MenuCard";
+import { MenuItem } from "@/type";
 
 const Search = () => {
     const { category, query } = useLocalSearchParams<{query: string; category: string}>()
@@ -22,10 +24,10 @@ const Search = () => {
       <FlatList
         data={data}
         renderItem={({ item, index}) => {
-          const isFirstRightColItem = index % 2 == 0;
+          const isFirstRightColItem = index % 2 === 0;
         return (
           <View className={cn("flex-1 max-w[48%]", !isFirstRightColItem ? 'mt-10': 'mt-0')}>
-            <Text>Menu Card</Text>
+            <MenuCard item={item as unknown as MenuItem} />
           </View>
         )}}
         keyExtractor={item => item.$id}
